@@ -1,0 +1,17 @@
+/*
+Theme Name:   CloudStudio Hello Child
+Theme URI:    https://cloud.studio/wordpress-stack
+Description:  Modern child theme for Hello Elementor - Built with TypeScript and Vite
+Author:       Cloud Studio IoT
+Author URI:   https://cloud.studio
+Template:     hello-elementor
+Version:      2.0.0
+Requires at least: 6.4
+Tested up to: 6.4
+Requires PHP: 8.1
+License:      Proprietary
+License URI:  https://cloud.studio/license
+Text Domain:  cloudstudio-hello-child
+*/
+
+/* This file is intentionally minimal - all styles are built from src/ */

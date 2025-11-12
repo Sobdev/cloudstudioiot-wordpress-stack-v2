@@ -1,0 +1,57 @@
+/* Component Styles */
+
+/* Buttons */
+.cloudstudio-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    padding: var(--spacing-3) var(--spacing-6);
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    border-radius: var(--border-radius-md);
+    cursor: pointer;
+    transition: all var(--transition-base) ease;
+}
+
+.cloudstudio-btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.cloudstudio-btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Cards */
+.cloudstudio-card {
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-6);
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow var(--transition-base) ease;
+}
+
+.cloudstudio-card:hover {
+    box-shadow: var(--shadow-md);
+}
+
+/* Forms */
+.cloudstudio-input {
+    width: 100%;
+    padding: var(--spacing-3);
+    font-size: var(--font-size-base);
+    border: 1px solid var(--color-border);
+    border-radius: var(--border-radius-md);
+    transition: border-color var(--transition-fast) ease;
+}
+
+.cloudstudio-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(0, 115, 170, 0.1);
+}

@@ -1,0 +1,156 @@
+/* CloudStudio Elementor Widgets - Frontend Styles */
+
+/* Animations */
+@keyframes cloudstudio-fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes cloudstudio-slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cloudstudio-slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cloudstudio-scale-up {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Animation classes */
+.cloudstudio-animate-fade {
+    animation: cloudstudio-fade-in 0.6s ease-out forwards;
+}
+
+.cloudstudio-animate-slide-up {
+    animation: cloudstudio-slide-up 0.6s ease-out forwards;
+}
+
+.cloudstudio-animate-slide-down {
+    animation: cloudstudio-slide-down 0.6s ease-out forwards;
+}
+
+.cloudstudio-animate-scale {
+    animation: cloudstudio-scale-up 0.6s ease-out forwards;
+}
+
+/* Common widget styles */
+.cloudstudio-widget {
+    position: relative;
+}
+
+.cloudstudio-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cloudstudio-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* FAQ Styles */
+.cloudstudio-faq-item {
+    margin-bottom: 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.cloudstudio-faq-question {
+    padding: 16px;
+    background: #f5f5f5;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.3s ease;
+}
+
+.cloudstudio-faq-question:hover {
+    background: #eeeeee;
+}
+
+.cloudstudio-faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.cloudstudio-faq-item.is-open .cloudstudio-faq-answer {
+    max-height: 500px;
+    padding: 16px;
+}
+
+/* Tabs Styles */
+.cloudstudio-tabs-nav {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.cloudstudio-tab {
+    padding: 12px 24px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+}
+
+.cloudstudio-tab:hover {
+    background: #f5f5f5;
+}
+
+.cloudstudio-tab.is-active {
+    color: #0073aa;
+    border-bottom-color: #0073aa;
+}
+
+.cloudstudio-tab-panel {
+    display: none;
+}
+
+.cloudstudio-tab-panel.is-active {
+    display: block;
+    animation: cloudstudio-fade-in 0.3s ease-out;
+}

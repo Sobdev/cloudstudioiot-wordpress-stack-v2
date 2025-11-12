@@ -1,0 +1,24 @@
+/* Dark Mode Styles */
+
+body.cloudstudio-dark-mode {
+    --color-text: #e0e0e0;
+    --color-text-light: #b0b0b0;
+    --color-background: #1a1a1a;
+    --color-surface: #2a2a2a;
+    --color-border: #404040;
+}
+
+/* Dark mode specific adjustments */
+body.cloudstudio-dark-mode img {
+    opacity: 0.9;
+}
+
+body.cloudstudio-dark-mode .cloudstudio-card {
+    background: var(--color-surface);
+    border-color: var(--color-border);
+}
+
+body.cloudstudio-dark-mode code {
+    background: var(--color-surface);
+    color: #e0e0e0;
+}

@@ -1,0 +1,23 @@
+/* CloudStudio Elementor Widgets - Editor Styles */
+
+.elementor-panel .cloudstudio-panel-icon {
+    color: #0073aa;
+    font-size: 16px;
+}
+
+.elementor-control-cloudstudio-notice {
+    background: #e8f5e9;
+    border-left: 4px solid #4caf50;
+    padding: 12px;
+    margin: 8px 0;
+}
+
+.elementor-control-cloudstudio-notice.warning {
+    background: #fff3e0;
+    border-left-color: #ff9800;
+}
+
+.elementor-control-cloudstudio-notice.error {
+    background: #ffebee;
+    border-left-color: #f44336;
+}
