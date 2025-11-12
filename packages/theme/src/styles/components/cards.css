@@ -34,13 +34,13 @@
 /* Elevated Card */
 .cs-card--elevated {
     background-color: white;
-    box-shadow: 
+    box-shadow:
         0 4px 6px -1px rgba(0, 0, 0, 0.1),
         0 2px 4px -2px rgba(0, 0, 0, 0.1);
 }
 
 .cs-card--elevated:hover {
-    box-shadow: 
+    box-shadow:
         0 10px 15px -3px rgba(0, 0, 0, 0.1),
         0 4px 6px -4px rgba(0, 0, 0, 0.1);
     transform: translateY(-2px);
@@ -62,12 +62,10 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.4) 50%,
-        transparent
-    );
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.4) 50%,
+            transparent);
 }
 
 .cs-card--glass:hover {
@@ -272,11 +270,9 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(
-        to bottom,
-        transparent 0%,
-        rgba(0, 0, 0, 0.7) 100%
-    );
+    background: linear-gradient(to bottom,
+            transparent 0%,
+            rgba(0, 0, 0, 0.7) 100%);
     display: flex;
     align-items: flex-end;
     padding: 2rem;
@@ -394,12 +390,10 @@
     left: -50%;
     width: 200%;
     height: 200%;
-    background: linear-gradient(
-        45deg,
-        transparent 30%,
-        rgba(255, 255, 255, 0.1) 50%,
-        transparent 70%
-    );
+    background: linear-gradient(45deg,
+            transparent 30%,
+            rgba(255, 255, 255, 0.1) 50%,
+            transparent 70%);
     animation: cs-card-shimmer 3s infinite;
 }
 
@@ -407,6 +401,7 @@
     0% {
         transform: translateX(-100%) translateY(-100%) rotate(45deg);
     }
+
     100% {
         transform: translateX(100%) translateY(100%) rotate(45deg);
     }
@@ -421,16 +416,16 @@
         border-color: rgba(255, 255, 255, 0.1);
         color: white;
     }
-    
+
     .cs-card--elevated {
         background-color: #1e293b;
         color: white;
     }
-    
+
     .cs-card__subtitle {
         color: #94a3b8;
     }
-    
+
     .cs-card__header,
     .cs-card__footer {
         border-color: rgba(255, 255, 255, 0.1);
@@ -444,7 +439,7 @@
     .cs-card-group--4col {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .cs-card-group--3col {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -454,27 +449,27 @@
     .cs-card--lg {
         padding: 1.5rem;
     }
-    
+
     .cs-card--xl {
         padding: 2rem;
     }
-    
+
     .cs-card-group--2col,
     .cs-card-group--3col,
     .cs-card-group--4col {
         grid-template-columns: 1fr;
     }
-    
+
     .cs-card--horizontal {
         flex-direction: column;
     }
-    
+
     .cs-card--horizontal .cs-card__media {
         width: 100%;
         margin-right: 0;
         margin-bottom: 1rem;
     }
-    
+
     .cs-card__overlay {
         padding: 1.5rem;
     }
@@ -489,11 +484,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
     .cs-card,
     .cs-card__media img {
         transition: none;
     }
-    
+
     .cs-card--shimmer::after {
         animation: none;
     }
