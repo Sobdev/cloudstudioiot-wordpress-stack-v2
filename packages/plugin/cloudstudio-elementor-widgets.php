@@ -117,18 +117,6 @@ final class Plugin {
 		add_action( 'elementor/frontend/after_enqueue_styles', [ $this, 'frontend_styles' ] );
 		add_action( 'elementor/frontend/after_enqueue_scripts', [ $this, 'frontend_scripts' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'admin_scripts' ] );
-
-		// Load includes.
-		$this->includes();
-	}
-
-	/**
-	 * Load includes.
-	 */
-	private function includes(): void {
-		require_once __DIR__ . '/src/widgets/class-button-widget.php';
-		require_once __DIR__ . '/src/widgets/class-heading-widget.php';
-		require_once __DIR__ . '/src/widgets/class-hero-widget.php';
 	}
 
 	/**
@@ -137,6 +125,12 @@ final class Plugin {
 	 * @param \Elementor\Widgets_Manager $widgets_manager Elementor widgets manager.
 	 */
 	public function register_widgets( $widgets_manager ): void {
+		// Load widget files only when needed.
+		require_once __DIR__ . '/src/widgets/class-button-widget.php';
+		require_once __DIR__ . '/src/widgets/class-heading-widget.php';
+		require_once __DIR__ . '/src/widgets/class-hero-widget.php';
+
+		// Register widgets.
 		$widgets_manager->register( new Widgets\Button_Widget() );
 		$widgets_manager->register( new Widgets\Heading_Widget() );
 		$widgets_manager->register( new Widgets\Hero_Widget() );
