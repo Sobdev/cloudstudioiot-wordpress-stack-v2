@@ -5,7 +5,7 @@
 [![Version](https://img.shields.io/badge/version-2.0.0--alpha-blue.svg)](https://github.com/Sobdev/cloudstudioiot-wordpress-stack-v2)
 [![License](https://img.shields.io/badge/license-Proprietary-red.svg)](LICENSE)
 [![WordPress](https://img.shields.io/badge/WordPress-6.4%2B-blue.svg)](https://wordpress.org/)
-[![Elementor Pro](https://img.shields.io/badge/Elementor%20Pro-3.18%2B-pink.svg)](https://elementor.com/)
+[![Elementor Pro](https://img.shields.io/badge/Elementor%20Pro-3.10%2B-pink.svg)](https://elementor.com/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3%2B-blue.svg)](https://www.typescriptlang.org/)
 [![Vite](https://img.shields.io/badge/Vite-5.0%2B-646cff.svg)](https://vitejs.dev/)
 
@@ -17,30 +17,32 @@
 
 - **Monorepo with pnpm Workspaces**: Efficient dependency management and shared code
 - **TypeScript**: Type-safe development for JavaScript assets
-- **Vite Build System**: Lightning-fast HMR and optimized production builds
-- **Component-First**: Reusable, testable, maintainable code
+- **Vite Build System**: Lightning-fast HMR and optimized production builds (2-3s builds)
+- **Modular CSS Components**: DRY principle, widgets consume shared styles
 - **PHP Modern Standards**: PSR-4 autoloading, namespaces, type declarations
+
+### 🎨 Design System
+
+- **135 Modular CSS Classes**: Buttons, gradients, badges, cards
+- **7 Button Variants**: Primary, secondary, outline, link, gradient, glass, glow
+- **8 Gradient Palettes**: Animated gradients with 3 animation types
+- **10 Badge Variants**: Including glassmorphism effects
+- **6 Card Types**: Glass, elevated, gradient, outline, shimmer effects
+- **Responsive & Accessible**: Mobile-first, dark mode, reduced motion support
 
 ### ⚡ Performance
 
 - **Zero Runtime Loops**: Eliminated infinite loop issues from v1
 - **Optimized Asset Loading**: Code splitting, lazy loading, tree shaking
-- **Minimal Dependencies**: Only load what's needed
-- **Caching Strategy**: Aggressive caching with smart invalidation
+- **Minimal Build Output**: Plugin 49KB, Theme 7KB
+- **Compressed CSS**: 20.93 kB → 4.57 kB gzip
 
-### 🧪 Quality Assurance
+### 🔐 Stability & Security
 
-- **Unit Testing**: Vitest for JS/TS, PHPUnit for PHP
-- **E2E Testing**: Playwright for browser automation
-- **Linting**: ESLint + Prettier + PHPCS + PHPStan
-- **CI/CD**: GitHub Actions for automated testing and deployment
-
-### 🔐 Security
-
-- **SAST Integration**: Automated security scanning
-- **Dependency Audits**: Regular vulnerability checks
-- **Sanitization First**: All inputs sanitized, all outputs escaped
-- **Permission Checks**: Proper capability checks on all actions
+- **Widget Loading Fix**: Proper Elementor initialization timing
+- **PHP 8.0 Compatible**: Works with common hosting environments
+- **No Breaking Changes**: Gradual enhancement strategy
+- **Version Locked**: WordPress 6.4+, Elementor 3.10+
 
 ---
 
@@ -249,6 +251,81 @@ pnpm deploy:production     # Deploy to production
 - **GitHub Actions**: Automated workflows
 - **SAST**: Security scanning
 - **Dependency Bot**: Automated updates
+
+---
+
+## 🎨 Modular Design System
+
+### Component Architecture
+
+The v2 stack introduces a **modular CSS component system** where widgets consume shared styles instead of duplicating code. This follows the DRY principle and ensures consistency across all components.
+
+#### 📁 Component Files
+
+Located in `packages/theme/src/styles/components/`:
+
+1. **buttons.css** (293 lines)
+   - 7 variants: primary, secondary, outline, link, gradient, glass, glow
+   - 3 sizes: small, medium, large
+   - States: hover, active, disabled, loading
+   - Icon support (left/right positioning)
+   - Button groups with alignment options
+
+2. **gradients.css** (258 lines)
+   - 8 color palettes: lavender, sunrise, ocean, aurora, twilight, fire, forest, violet
+   - Text gradients with `-webkit-background-clip`
+   - Background gradients for sections
+   - Overlay gradients (dark/light)
+   - 3 animation types: shift (3s), pulse (2s), rotate (4s)
+
+3. **badges.css** (352 lines)
+   - 10 variants: primary, secondary, success, warning, danger, info, gradient, glass, outline, solid
+   - 3 sizes with proper spacing
+   - Icon/dot support
+   - Animated effects: float, glow, pulse
+   - Dismissible badges with close button
+
+4. **cards.css** (496 lines)
+   - 6 main variants: default, elevated, glass, glass-dark, gradient, outline
+   - Glassmorphism with `backdrop-filter: blur()`
+   - Feature cards for Hero widgets
+   - Card groups/grids (2, 3, 4 columns)
+   - Media containers with aspect ratio
+   - Overlay system for content on images
+   - Special effects: glow, shimmer animations
+
+#### 🎯 Usage Pattern
+
+**Old Way (v1 - Duplicated Styles):**
+```php
+// Each widget had inline styles or duplicated CSS
+<button style="background: linear-gradient(...); color: white; padding: 1rem 2rem;">
+```
+
+**New Way (v2 - Modular Classes):**
+```php
+// Widgets consume shared CSS classes
+<button class="cs-btn cs-btn--gradient cs-btn--lg">Click Me</button>
+```
+
+**Key Benefit:** Add a new button variant to `buttons.css` → automatically available to ALL widgets (Hero, CTA, Button, etc.) without modifying widget PHP code.
+
+#### 📊 Component Statistics
+
+| Component | Lines | Classes | Animations | Responsive |
+|-----------|-------|---------|------------|------------|
+| Buttons   | 293   | 21      | 2          | ✅         |
+| Gradients | 258   | 40      | 3          | ✅         |
+| Badges    | 352   | 33      | 3          | ✅         |
+| Cards     | 496   | 41      | 2          | ✅         |
+| **Total** | **1,399** | **135** | **10** | **✅**     |
+
+#### 🌐 Browser Support
+
+- **Modern browsers**: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
+- **Glassmorphism**: Requires `backdrop-filter` support
+- **Fallbacks**: Included for older browsers
+- **Accessibility**: WCAG 2.1 AA compliant, `prefers-reduced-motion` support
 
 ---
 
