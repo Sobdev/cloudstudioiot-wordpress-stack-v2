@@ -33,12 +33,12 @@ add_action( 'wp_enqueue_scripts', 'cloudstudio_enqueue_parent_styles' );
  * Enqueue child theme styles.
  */
 function cloudstudio_enqueue_child_styles(): void {
-	$css_file = get_stylesheet_directory() . '/dist/css/main.css';
+	$css_file = get_stylesheet_directory() . '/dist/css/style.css';
 	
 	if ( file_exists( $css_file ) ) {
 		wp_enqueue_style(
 			'cloudstudio-child-style',
-			get_stylesheet_directory_uri() . '/dist/css/main.css',
+			get_stylesheet_directory_uri() . '/dist/css/style.css',
 			[ 'hello-elementor' ],
 			CLOUDSTUDIO_THEME_VERSION
 		);
