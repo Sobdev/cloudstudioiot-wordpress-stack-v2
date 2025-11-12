@@ -126,23 +126,9 @@ final class Plugin {
 	 * Load includes.
 	 */
 	private function includes(): void {
-		require_once __DIR__ . '/src/widgets/class-hero-widget.php';
-		require_once __DIR__ . '/src/widgets/class-cta-widget.php';
 		require_once __DIR__ . '/src/widgets/class-button-widget.php';
-		require_once __DIR__ . '/src/widgets/class-logo-carousel-widget.php';
-		require_once __DIR__ . '/src/widgets/class-features-card-widget.php';
-		require_once __DIR__ . '/src/widgets/class-media-widget.php';
 		require_once __DIR__ . '/src/widgets/class-heading-widget.php';
-		require_once __DIR__ . '/src/widgets/class-faq-widget.php';
-		require_once __DIR__ . '/src/widgets/class-tabs-widget.php';
-
-		// Load components.
-		require_once __DIR__ . '/src/components/class-button-component.php';
-		require_once __DIR__ . '/src/components/class-media-component.php';
-		require_once __DIR__ . '/src/components/class-heading-component.php';
-		require_once __DIR__ . '/src/components/class-animation-component.php';
-		require_once __DIR__ . '/src/components/class-background-component.php';
-		require_once __DIR__ . '/src/components/class-spacing-component.php';
+		require_once __DIR__ . '/src/widgets/class-hero-widget.php';
 	}
 
 	/**
@@ -151,15 +137,9 @@ final class Plugin {
 	 * @param \Elementor\Widgets_Manager $widgets_manager Elementor widgets manager.
 	 */
 	public function register_widgets( $widgets_manager ): void {
-		$widgets_manager->register( new Widgets\Hero_Widget() );
-		$widgets_manager->register( new Widgets\CTA_Widget() );
 		$widgets_manager->register( new Widgets\Button_Widget() );
-		$widgets_manager->register( new Widgets\Logo_Carousel_Widget() );
-		$widgets_manager->register( new Widgets\Features_Card_Widget() );
-		$widgets_manager->register( new Widgets\Media_Widget() );
 		$widgets_manager->register( new Widgets\Heading_Widget() );
-		$widgets_manager->register( new Widgets\FAQ_Widget() );
-		$widgets_manager->register( new Widgets\Tabs_Widget() );
+		$widgets_manager->register( new Widgets\Hero_Widget() );
 	}
 
 	/**
