@@ -1,0 +1,341 @@
+/* ============================================================================
+   BADGES COMPONENT - Cloud Studio Design System v2
+   ============================================================================
+   Modular badge system for Hero, CTA, and other widgets.
+   
+   Usage in widgets:
+   <span class="cs-badge cs-badge--primary">New Feature</span>
+   <span class="cs-badge cs-badge--gradient cs-badge--lg">Limited Time</span>
+   ============================================================================ */
+
+/* Base Badge Styles
+   ========================================================================== */
+
+.cs-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.375rem;
+    padding: 0.375rem 0.875rem;
+    border-radius: 9999px; /* Pill shape */
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Badge Sizes
+   ========================================================================== */
+
+.cs-badge--sm {
+    padding: 0.25rem 0.625rem;
+    font-size: 0.6875rem;
+}
+
+.cs-badge--md {
+    padding: 0.375rem 0.875rem;
+    font-size: 0.8125rem;
+}
+
+.cs-badge--lg {
+    padding: 0.5rem 1.125rem;
+    font-size: 0.9375rem;
+}
+
+/* Badge Variants
+   ========================================================================== */
+
+/* Primary - Violet */
+.cs-badge--primary {
+    background-color: rgba(124, 58, 237, 0.1);
+    color: #7c3aed;
+    border: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+.cs-badge--primary:hover {
+    background-color: rgba(124, 58, 237, 0.15);
+    border-color: rgba(124, 58, 237, 0.3);
+    transform: translateY(-1px);
+}
+
+/* Secondary - Gray */
+.cs-badge--secondary {
+    background-color: rgba(100, 116, 139, 0.1);
+    color: #64748b;
+    border: 1px solid rgba(100, 116, 139, 0.2);
+}
+
+.cs-badge--secondary:hover {
+    background-color: rgba(100, 116, 139, 0.15);
+    border-color: rgba(100, 116, 139, 0.3);
+}
+
+/* Success - Green */
+.cs-badge--success {
+    background-color: rgba(34, 197, 94, 0.1);
+    color: #22c55e;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.cs-badge--success:hover {
+    background-color: rgba(34, 197, 94, 0.15);
+    border-color: rgba(34, 197, 94, 0.3);
+}
+
+/* Warning - Amber */
+.cs-badge--warning {
+    background-color: rgba(251, 191, 36, 0.1);
+    color: #fbbf24;
+    border: 1px solid rgba(251, 191, 36, 0.2);
+}
+
+.cs-badge--warning:hover {
+    background-color: rgba(251, 191, 36, 0.15);
+    border-color: rgba(251, 191, 36, 0.3);
+}
+
+/* Danger - Red */
+.cs-badge--danger {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.cs-badge--danger:hover {
+    background-color: rgba(239, 68, 68, 0.15);
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+/* Info - Blue */
+.cs-badge--info {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: #3b82f6;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.cs-badge--info:hover {
+    background-color: rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+/* Gradient Badge */
+.cs-badge--gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+}
+
+.cs-badge--gradient:hover {
+    box-shadow: 0 4px 12px rgba(118, 75, 162, 0.4);
+    transform: translateY(-1px);
+}
+
+/* Glass Badge (Glassmorphism) */
+.cs-badge--glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: currentColor;
+}
+
+.cs-badge--glass:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Outline Badge */
+.cs-badge--outline {
+    background-color: transparent;
+    color: #7c3aed;
+    border: 1.5px solid #7c3aed;
+}
+
+.cs-badge--outline:hover {
+    background-color: rgba(124, 58, 237, 0.05);
+}
+
+/* Solid Badge */
+.cs-badge--solid {
+    background-color: #7c3aed;
+    color: white;
+    border: none;
+}
+
+.cs-badge--solid:hover {
+    background-color: #6d28d9;
+    box-shadow: 0 2px 8px rgba(124, 58, 237, 0.3);
+}
+
+/* Badge with Icon
+   ========================================================================== */
+
+.cs-badge__icon {
+    display: inline-flex;
+    width: 1em;
+    height: 1em;
+}
+
+.cs-badge__icon--left {
+    margin-right: 0.25rem;
+    margin-left: -0.125rem;
+}
+
+.cs-badge__icon--right {
+    margin-left: 0.25rem;
+    margin-right: -0.125rem;
+}
+
+/* Badge with Dot
+   ========================================================================== */
+
+.cs-badge__dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: currentColor;
+}
+
+.cs-badge__dot--pulse {
+    animation: cs-badge-dot-pulse 2s ease-in-out infinite;
+}
+
+@keyframes cs-badge-dot-pulse {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.6;
+        transform: scale(0.9);
+    }
+}
+
+/* Badge Group
+   ========================================================================== */
+
+.cs-badge-group {
+    display: inline-flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+/* Animated Badges
+   ========================================================================== */
+
+.cs-badge--animated {
+    animation: cs-badge-float 3s ease-in-out infinite;
+}
+
+@keyframes cs-badge-float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+.cs-badge--glow {
+    animation: cs-badge-glow 2s ease-in-out infinite;
+}
+
+@keyframes cs-badge-glow {
+    0%, 100% {
+        box-shadow: 0 0 8px rgba(124, 58, 237, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 16px rgba(124, 58, 237, 0.6);
+    }
+}
+
+/* Dismissible Badge
+   ========================================================================== */
+
+.cs-badge--dismissible {
+    padding-right: 0.5rem;
+}
+
+.cs-badge__close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.125rem;
+    height: 1.125rem;
+    margin-left: 0.375rem;
+    border-radius: 50%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s, background-color 0.2s;
+}
+
+.cs-badge__close:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.cs-badge__close:focus {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+}
+
+/* Dark Mode Support
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+    .cs-badge--primary {
+        background-color: rgba(124, 58, 237, 0.2);
+        color: #a78bfa;
+    }
+    
+    .cs-badge--secondary {
+        background-color: rgba(148, 163, 184, 0.2);
+        color: #94a3b8;
+    }
+    
+    .cs-badge--glass {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* Responsive
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .cs-badge {
+        font-size: 0.75rem;
+        padding: 0.3125rem 0.75rem;
+    }
+    
+    .cs-badge--sm {
+        font-size: 0.625rem;
+        padding: 0.1875rem 0.5rem;
+    }
+    
+    .cs-badge--lg {
+        font-size: 0.875rem;
+        padding: 0.4375rem 1rem;
+    }
+}
+
+/* Accessibility
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .cs-badge--animated,
+    .cs-badge--glow,
+    .cs-badge__dot--pulse {
+        animation: none;
+    }
+    
+    .cs-badge {
+        transition: none;
+    }
+}

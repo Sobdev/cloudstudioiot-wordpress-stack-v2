@@ -3,6 +3,13 @@
 @import './variables.css';
 @import './typography.css';
 @import './components.css';
+
+/* Modular Components */
+@import './components/buttons.css';
+@import './components/gradients.css';
+@import './components/badges.css';
+@import './components/cards.css';
+
 @import './dark-mode.css';
 
 /* Base reset */

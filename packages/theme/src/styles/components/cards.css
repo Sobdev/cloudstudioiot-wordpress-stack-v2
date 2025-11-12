@@ -1,0 +1,500 @@
+/* ============================================================================
+   CARDS COMPONENT - Cloud Studio Design System v2
+   ============================================================================
+   Modular card system including glassmorphism effects.
+   Used by Hero, Feature, CTA widgets and more.
+   
+   Usage in widgets:
+   <div class="cs-card cs-card--glass">Content</div>
+   <div class="cs-card cs-card--elevated cs-card--interactive">Content</div>
+   ============================================================================ */
+
+/* Base Card Styles
+   ========================================================================== */
+
+.cs-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+    background-color: white;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Card Variants
+   ========================================================================== */
+
+/* Default Card - Subtle */
+.cs-card--default {
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Elevated Card */
+.cs-card--elevated {
+    background-color: white;
+    box-shadow: 
+        0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.cs-card--elevated:hover {
+    box-shadow: 
+        0 10px 15px -3px rgba(0, 0, 0, 0.1),
+        0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Glass Card (Glassmorphism) */
+.cs-card--glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.cs-card--glass::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4) 50%,
+        transparent
+    );
+}
+
+.cs-card--glass:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Glass Dark Variant */
+.cs-card--glass-dark {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+.cs-card--glass-dark:hover {
+    background: rgba(0, 0, 0, 0.4);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Gradient Card */
+.cs-card--gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+}
+
+.cs-card--gradient:hover {
+    box-shadow: 0 12px 24px rgba(118, 75, 162, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Outline Card */
+.cs-card--outline {
+    background-color: transparent;
+    border: 2px solid rgba(124, 58, 237, 0.2);
+}
+
+.cs-card--outline:hover {
+    border-color: rgba(124, 58, 237, 0.4);
+    background-color: rgba(124, 58, 237, 0.02);
+}
+
+/* Card Sizes
+   ========================================================================== */
+
+.cs-card--sm {
+    padding: 1rem;
+    border-radius: 0.75rem;
+}
+
+.cs-card--md {
+    padding: 1.5rem;
+    border-radius: 1rem;
+}
+
+.cs-card--lg {
+    padding: 2rem;
+    border-radius: 1.25rem;
+}
+
+.cs-card--xl {
+    padding: 3rem;
+    border-radius: 1.5rem;
+}
+
+/* Interactive States
+   ========================================================================== */
+
+.cs-card--interactive {
+    cursor: pointer;
+}
+
+.cs-card--interactive:hover {
+    transform: translateY(-4px);
+}
+
+.cs-card--interactive:active {
+    transform: translateY(-2px);
+}
+
+.cs-card--clickable {
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Card Header
+   ========================================================================== */
+
+.cs-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.cs-card--glass .cs-card__header,
+.cs-card--glass-dark .cs-card__header {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.cs-card__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.cs-card__subtitle {
+    font-size: 0.875rem;
+    color: #64748b;
+    margin-top: 0.25rem;
+}
+
+.cs-card--glass .cs-card__subtitle,
+.cs-card--glass-dark .cs-card__subtitle,
+.cs-card--gradient .cs-card__subtitle {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Card Body
+   ========================================================================== */
+
+.cs-card__body {
+    flex: 1;
+}
+
+.cs-card__body p {
+    margin: 0 0 1rem 0;
+    line-height: 1.6;
+}
+
+.cs-card__body p:last-child {
+    margin-bottom: 0;
+}
+
+/* Card Footer
+   ========================================================================== */
+
+.cs-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.cs-card--glass .cs-card__footer,
+.cs-card--glass-dark .cs-card__footer {
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Card Media
+   ========================================================================== */
+
+.cs-card__media {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.cs-card__media img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.cs-card--interactive .cs-card__media img:hover {
+    transform: scale(1.05);
+}
+
+.cs-card__media--rounded-top {
+    border-radius: 1rem 1rem 0 0;
+    margin: 0;
+}
+
+/* Card Badge/Tag
+   ========================================================================== */
+
+.cs-card__badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+}
+
+/* Card Overlay
+   ========================================================================== */
+
+.cs-card__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0, 0, 0, 0.7) 100%
+    );
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
+    border-radius: inherit;
+    color: white;
+}
+
+/* Card Group/Grid
+   ========================================================================== */
+
+.cs-card-group {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.cs-card-group--2col {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.cs-card-group--3col {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.cs-card-group--4col {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* Horizontal Card
+   ========================================================================== */
+
+.cs-card--horizontal {
+    flex-direction: row;
+}
+
+.cs-card--horizontal .cs-card__media {
+    width: 40%;
+    margin-bottom: 0;
+    margin-right: 1.5rem;
+    border-radius: 0.75rem;
+}
+
+/* Feature Card (for Hero features list)
+   ========================================================================== */
+
+.cs-feature-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.cs-feature-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateX(4px);
+}
+
+.cs-feature-card__icon {
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    background: rgba(124, 58, 237, 0.1);
+    color: #7c3aed;
+}
+
+.cs-feature-card__content {
+    flex: 1;
+}
+
+.cs-feature-card__title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 0.25rem 0;
+    color: white;
+}
+
+.cs-feature-card__description {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Special Effects
+   ========================================================================== */
+
+/* Glow Effect */
+.cs-card--glow {
+    box-shadow: 0 0 30px rgba(124, 58, 237, 0.3);
+}
+
+.cs-card--glow:hover {
+    box-shadow: 0 0 40px rgba(124, 58, 237, 0.5);
+}
+
+/* Shimmer Effect */
+.cs-card--shimmer {
+    overflow: hidden;
+}
+
+.cs-card--shimmer::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 70%
+    );
+    animation: cs-card-shimmer 3s infinite;
+}
+
+@keyframes cs-card-shimmer {
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+}
+
+/* Dark Mode
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+    .cs-card--default {
+        background-color: #1e293b;
+        border-color: rgba(255, 255, 255, 0.1);
+        color: white;
+    }
+    
+    .cs-card--elevated {
+        background-color: #1e293b;
+        color: white;
+    }
+    
+    .cs-card__subtitle {
+        color: #94a3b8;
+    }
+    
+    .cs-card__header,
+    .cs-card__footer {
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* Responsive
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .cs-card-group--4col {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .cs-card-group--3col {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .cs-card--lg {
+        padding: 1.5rem;
+    }
+    
+    .cs-card--xl {
+        padding: 2rem;
+    }
+    
+    .cs-card-group--2col,
+    .cs-card-group--3col,
+    .cs-card-group--4col {
+        grid-template-columns: 1fr;
+    }
+    
+    .cs-card--horizontal {
+        flex-direction: column;
+    }
+    
+    .cs-card--horizontal .cs-card__media {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+    
+    .cs-card__overlay {
+        padding: 1.5rem;
+    }
+}
+
+/* Accessibility
+   ========================================================================== */
+
+.cs-card:focus-within {
+    outline: 2px solid #7c3aed;
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cs-card,
+    .cs-card__media img {
+        transition: none;
+    }
+    
+    .cs-card--shimmer::after {
+        animation: none;
+    }
+}

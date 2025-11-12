@@ -1,0 +1,293 @@
+/* ============================================================================
+   BUTTONS COMPONENT - Cloud Studio Design System v2
+   ============================================================================
+   Modular button system that can be used by any widget (Button, Hero, CTA, etc.)
+   All button variants and palettes are defined here.
+   
+   Usage in widgets:
+   - Add class "cs-btn" + variant class (cs-btn--primary, cs-btn--gradient, etc.)
+   - Widgets consume this component, don't duplicate button styles
+   ============================================================================ */
+
+/* Base Button Styles
+   ========================================================================== */
+
+.cs-btn {
+    /* Reset */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+
+    /* Default colors */
+    background: var(--cs-btn-bg, #0073aa);
+    color: var(--cs-btn-color, #ffffff);
+}
+
+.cs-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.cs-btn:active {
+    transform: translateY(0);
+}
+
+.cs-btn:focus-visible {
+    outline: 3px solid rgba(0, 115, 170, 0.3);
+    outline-offset: 2px;
+}
+
+/* Button Sizes
+   ========================================================================== */
+
+.cs-btn--small {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    min-height: 40px;
+}
+
+.cs-btn--medium {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    min-height: 48px;
+}
+
+.cs-btn--large {
+    padding: 1.25rem 2rem;
+    font-size: 1.125rem;
+    min-height: 56px;
+}
+
+/* Button Variants
+   ========================================================================== */
+
+/* Primary Button */
+.cs-btn--primary {
+    --cs-btn-bg: #7c3aed;
+    --cs-btn-color: #ffffff;
+}
+
+.cs-btn--primary:hover {
+    --cs-btn-bg: #6d28d9;
+}
+
+/* Secondary Button */
+.cs-btn--secondary {
+    --cs-btn-bg: #64748b;
+    --cs-btn-color: #ffffff;
+}
+
+.cs-btn--secondary:hover {
+    --cs-btn-bg: #475569;
+}
+
+/* Outline Button */
+.cs-btn--outline {
+    --cs-btn-bg: transparent;
+    --cs-btn-color: #0073aa;
+    border: 2px solid currentColor;
+}
+
+.cs-btn--outline:hover {
+    --cs-btn-bg: #0073aa;
+    --cs-btn-color: #ffffff;
+}
+
+/* Link Button */
+.cs-btn--link {
+    --cs-btn-bg: transparent;
+    --cs-btn-color: #0073aa;
+    padding: 0.5rem;
+}
+
+.cs-btn--link:hover {
+    text-decoration: underline;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Gradient Button */
+.cs-btn--gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+}
+
+.cs-btn--gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.cs-btn--gradient:hover::before {
+    opacity: 1;
+}
+
+.cs-btn--gradient>* {
+    position: relative;
+    z-index: 1;
+}
+
+/* Glass Button (Glassmorphism) */
+.cs-btn--glass {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.cs-btn--glass:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Glow Button (Neon) */
+.cs-btn--glow {
+    background: #7c3aed;
+    color: #ffffff;
+    box-shadow:
+        0 0 20px rgba(124, 58, 237, 0.5),
+        0 0 40px rgba(124, 58, 237, 0.3);
+    animation: cs-btn-glow-pulse 2s ease-in-out infinite;
+}
+
+.cs-btn--glow:hover {
+    box-shadow:
+        0 0 30px rgba(124, 58, 237, 0.7),
+        0 0 60px rgba(124, 58, 237, 0.5);
+}
+
+@keyframes cs-btn-glow-pulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 20px rgba(124, 58, 237, 0.5),
+            0 0 40px rgba(124, 58, 237, 0.3);
+    }
+
+    50% {
+        box-shadow:
+            0 0 30px rgba(124, 58, 237, 0.6),
+            0 0 50px rgba(124, 58, 237, 0.4);
+    }
+}
+
+/* Button States
+   ========================================================================== */
+
+.cs-btn:disabled,
+.cs-btn.is-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.cs-btn.is-loading {
+    cursor: progress;
+    pointer-events: none;
+}
+
+.cs-btn.is-loading::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: cs-btn-spinner 0.6s linear infinite;
+}
+
+@keyframes cs-btn-spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Button Icons
+   ========================================================================== */
+
+.cs-btn__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cs-btn__icon svg,
+.cs-btn__icon i {
+    width: 1em;
+    height: 1em;
+}
+
+.cs-btn__icon--left {
+    margin-right: 0.5rem;
+}
+
+.cs-btn__icon--right {
+    margin-left: 0.5rem;
+}
+
+/* Full Width Button */
+.cs-btn--full-width {
+    width: 100%;
+    justify-content: center;
+}
+
+/* Button Group
+   ========================================================================== */
+
+.cs-btn-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.cs-btn-group--center {
+    justify-content: center;
+}
+
+.cs-btn-group--right {
+    justify-content: flex-end;
+}
+
+/* Responsive
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .cs-btn {
+        padding: 0.875rem 1.25rem;
+        font-size: 0.9375rem;
+    }
+
+    .cs-btn--large {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .cs-btn-group {
+        gap: 0.75rem;
+    }
+}
