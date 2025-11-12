@@ -5,7 +5,7 @@
  * Description: Professional Elementor widgets and components for Cloud Studio IoT platform - Built with modern architecture and zero infinite loops.
  * Version: 2.0.0
  * Requires at least: 6.4
- * Requires PHP: 8.1
+ * Requires PHP: 8.0
  * Author: Cloud Studio IoT
  * Author URI: https://cloud.studio
  * License: Proprietary
@@ -49,7 +49,7 @@ final class Plugin {
 	 *
 	 * @var string
 	 */
-	const MINIMUM_PHP_VERSION = '8.1';
+	const MINIMUM_PHP_VERSION = '8.0';
 
 	/**
 	 * Instance.
