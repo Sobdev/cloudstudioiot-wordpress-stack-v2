@@ -39,12 +39,12 @@ function cloudstudio_enqueue_child_styles(): void {
 		wp_enqueue_style(
 			'cloudstudio-child-style',
 			get_stylesheet_directory_uri() . '/dist/css/style.css',
-			[ 'hello-elementor' ],
+			[ 'hello-elementor', 'elementor-frontend' ],
 			CLOUDSTUDIO_THEME_VERSION
 		);
 	}
 }
-add_action( 'wp_enqueue_scripts', 'cloudstudio_enqueue_child_styles', 20 );
+add_action( 'wp_enqueue_scripts', 'cloudstudio_enqueue_child_styles', 999 );
 
 /**
  * Enqueue child theme scripts.
