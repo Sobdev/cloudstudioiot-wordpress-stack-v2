@@ -312,13 +312,13 @@ Located in `packages/theme/src/styles/components/`:
 
 #### 📊 Component Statistics
 
-| Component | Lines | Classes | Animations | Responsive |
-|-----------|-------|---------|------------|------------|
-| Buttons   | 293   | 21      | 2          | ✅         |
-| Gradients | 258   | 40      | 3          | ✅         |
-| Badges    | 352   | 33      | 3          | ✅         |
-| Cards     | 496   | 41      | 2          | ✅         |
-| **Total** | **1,399** | **135** | **10** | **✅**     |
+| Component | Lines     | Classes | Animations | Responsive |
+| --------- | --------- | ------- | ---------- | ---------- |
+| Buttons   | 293       | 21      | 2          | ✅          |
+| Gradients | 258       | 40      | 3          | ✅          |
+| Badges    | 352       | 33      | 3          | ✅          |
+| Cards     | 496       | 41      | 2          | ✅          |
+| **Total** | **1,399** | **135** | **10**     | **✅**      |
 
 #### 🌐 Browser Support
 
